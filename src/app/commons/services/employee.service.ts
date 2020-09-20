@@ -15,8 +15,11 @@ export class EmployeeService {
 
   async getEmployees() {
     this.employees = (await this.http.get(url).toPromise()) as Employee[];
-    console.log(this.employees[0].documentType);
 
     return this.employees;
+  }
+
+  createEmployees(employee) {
+    return this.http.post<Employee>(url, employee);
   }
 }

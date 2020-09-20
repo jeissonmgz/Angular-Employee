@@ -5,5 +5,12 @@
 <h1>Empleados</h1>
 
 <div class="container">
+  <app-form-create
+    [bosses]="employees"
+    [employees]="employees"
+    (sendForm)="createEmployee($event)"
+  ></app-form-create>
+  <br />
+  <br />
   <app-list [employees]="employees"></app-list>
 </div>

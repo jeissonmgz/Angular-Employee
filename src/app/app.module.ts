@@ -12,7 +12,12 @@ import { FormCreateComponent } from './components/organisms/form-create/form-cre
 import { EmployeeComponent } from './components/pages/employee/employee.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,9 +30,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
     MatFormFieldModule,
+    MatSnackBarModule,
+    MatSelectModule,
     MatTableModule,
     MatToolbarModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

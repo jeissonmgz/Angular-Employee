@@ -48,7 +48,9 @@
   <!-- Boss Column -->
   <ng-container matColumnDef="boss" width="20%">
     <th mat-header-cell *matHeaderCellDef>Jefe</th>
-    <td mat-cell *matCellDef="let element">{{ element.boss }}</td>
+    <td mat-cell *matCellDef="let element">
+      {{ element.boss?.name }} {{ element.boss?.lastName }}
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

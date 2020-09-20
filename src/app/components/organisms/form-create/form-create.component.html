@@ -1,1 +1,64 @@
-<p>form-create works!</p>
+<button
+  mat-raised-button
+  color="primary"
+  (click)="isCreate = true"
+  *ngIf="!isCreate"
+>
+  Agregar empleado
+</button>
+<mat-card *ngIf="isCreate">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <br />
+    <mat-card-title>
+      <h3>Registrar empleado</h3>
+    </mat-card-title>
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo Documento</mat-label>
+      <mat-select formControlName="documentType">
+        <mat-option
+          *ngFor="let eDocumentType of documentTypes"
+          [value]="eDocumentType.key"
+          >{{ eDocumentType.value }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Numero documento</mat-label>
+      <input matInput formControlName="documentNumber" />
+    </mat-form-field>
+    <div *ngIf="submitted && f.errors" class="error">
+      <div *ngIf="isMustBeDifferentDocument">
+        Ya se ha registrado un empleado con el mismo documento
+      </div>
+      <br />
+    </div>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Nombres</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Apellidos</mat-label>
+      <input matInput formControlName="lastName" />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Funcion</mat-label>
+      <input matInput formControlName="function" />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Jefe</mat-label>
+      <mat-select formControlName="boss">
+        <mat-option *ngFor="let boss of bossList" [value]="boss.value">{{
+          boss.display
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <button mat-raised-button color="primary" type="submit">Enviar</button>
+    <button mat-raised-button (click)="isCreate = false">Cancelar</button>
+    <button mat-raised-button (click)="resetForm()">Limpiar</button>
+  </form>
+</mat-card>
