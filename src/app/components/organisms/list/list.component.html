@@ -1,23 +1,3 @@
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Tipo documento</th>
-      <th>Número documento</th>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Jefe</th>
-    </tr>
-  </thead>
-  <tbody *ngFor="let employee of employees">
-    <tr>
-      <td>{{ employee.documentType }}</td>
-      <td>{{ employee.documentNumber }}</td>
-      <td>{{ employee.name }}</td>
-      <td>{{ employee.lastName }}</td>
-    </tr>
-  </tbody>
-</table> -->
-
 <table mat-table [dataSource]="employees" class="mat-elevation-z8">
   <!-- Document type Column -->
   <ng-container matColumnDef="documentType">

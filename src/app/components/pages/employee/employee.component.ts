@@ -30,6 +30,7 @@ export class EmployeeComponent implements OnInit {
       .then()
       .catch((e) => {
         this._snackBar.openFromComponent(EmployeeComponent, {
+          data: 'Hubo un error al registrar el empleado',
           duration: 5000,
           horizontalPosition: 'start',
           verticalPosition: 'top',
