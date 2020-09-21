@@ -45,6 +45,7 @@ export class FormCreateComponent implements OnInit, OnChanges {
   submitted = false;
   form: FormGroup;
   @Output() sendForm = new EventEmitter<Employee>();
+  bossList = [];
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -64,7 +65,7 @@ export class FormCreateComponent implements OnInit, OnChanges {
     );
   }
 
-  get bossList() {
+  loadBossList() {
     let bossList = [{ display: '', value: null }];
     this.bosses.forEach((boss) => {
       bossList = [
@@ -72,15 +73,17 @@ export class FormCreateComponent implements OnInit, OnChanges {
         { display: `${boss.name} ${boss.lastName}`, value: boss },
       ];
     });
-    return bossList;
+    this.bossList = bossList;
   }
 
   ngOnInit(): void {
+    this.loadBossList();
     this.resetForm();
     this.loadDocumentTypes();
   }
 
   ngOnChanges(): void {
+    this.loadBossList();
     this.resetForm();
   }
 
